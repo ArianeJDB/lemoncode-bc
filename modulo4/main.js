@@ -1,4 +1,3 @@
-
 const sumElement = document.querySelector('.sum')
 const substractElement = document.querySelector('.substract')
 const multiplyElement = document.querySelector('.multiply')
@@ -11,6 +10,7 @@ function getValueA() {
 function getValueB() {
     return parseInt(document.querySelector('.b').value)
 }
+
 function sum() {
     const a = getValueA()
     const b = getValueB()
