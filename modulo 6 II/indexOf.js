@@ -5,17 +5,9 @@ const decryptedText = document.getElementById('decrypted')
 const encryptButton = document.getElementById('encrypt')
 const decryptButton = document.getElementById('decrypt')
 
-function searchIndex (alphabet, character) {
-    for (let i = 0; i < alphabet.length; i++) {
-        if(alphabet[i] === character) {
-            return i
-        }
-    }
-    return -1
-}
-
 function transformCharacter(sourceAlphabet, resultAlphabet, character) {
-    const characterIndex = searchIndex(sourceAlphabet, character)
+    
+    const characterIndex = sourceAlphabet.indexOf(character)
     if(characterIndex === -1) {
         return character
     }
