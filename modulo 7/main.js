@@ -1,4 +1,4 @@
-const regex = /^ES\d{2}(\ ?\d{4}){5}$/
+const regex = /^ES\d{2}(\s?\d{4}){5}$/
 const pais = /^ES/
 const control = /\d{2}/
 const iban = 'ES6600190020961234567890'
@@ -13,7 +13,7 @@ console.log('control', control.exec(ibanSpaces))
 
 //matriculas
 
-const regexCar = /^\d{4}\ ?|-?[A-Z]{3}$/i
+const regexCar = /^\d{4}\s?|-?[A-Z]{3}$/i
 const num = /^\d{4}/
 const letras = /[A-Z]{3}$/i
 
