@@ -12,10 +12,11 @@ const obj2 = {
 }
 
 function hasId (obj) {
+  console.log('hasId', 'id' in obj)
  return 'id' in obj
 }
 
-hasId(obj2)
+hasId(obj)
 
 // head
 // Implementa una función llamada head tal que, dado un array como entrada, devuelva el primer elemento.
@@ -33,7 +34,7 @@ const arr = [
 
 function head(arr) {
   const [ first ] = arr
-  
+  console.log('head', first)
   return first
 }
 
@@ -48,7 +49,7 @@ head(arr)
 function tail(arr) {
   const [, second, third ] = arr
   const newArr = [second, third]
-
+  console.log('tail', newArr)
   return newArr
 }
 tail(arr)
@@ -58,10 +59,12 @@ tail(arr)
 
 // TIP: No se debe modificar el array de entrada. Piensa en destructuring y rest.
 
-function swapFirstToLast(arr) {
-  const [ first ] = arr
-  const [, second, third ] = arr
-  const newArr = [second, third, first]
+function swapFirstToLast(...array) {
+
+  const [ first, ...rest ] = arr
+  
+  const newArr = [...rest, first]
+  console.log('swapFirstToLast', newArr)
 
   return newArr
 }
@@ -76,6 +79,7 @@ swapFirstToLast(arr)
 function excludeId(obj) {
   const { id, ...rest } = obj
   const newObj = {...rest}
+  console.log('excludeId', newObj)
   
   return newObj
 }
@@ -88,6 +92,7 @@ excludeId(obj)
 // TIP: No utilices bucles.
 
 function wordsStartingWithA(arr) {
+  console.log('wordsStartingWithA', arr.filter(letter => letter.charAt(0) === 'A'))
   return arr.filter(letter => letter.charAt(0) === 'A')
 
 }
@@ -101,6 +106,7 @@ wordsStartingWithA(arr)
 // TIP: No utilices bucles.
 
 function concat(...args) {
+  console.log('concat', args.join('|'))
   return args.join('|')
 }
 concat('hola', 'que tal', 'todo', 'bien')
@@ -112,6 +118,7 @@ concat('hola', 'que tal', 'todo', 'bien')
 const nums = [1,2,3,4,5,6,7,8,9,0]
 
 function multArray(nums, target) {
+  console.log('multArray', nums.map(num => num * target))
   return nums.map(num => num * target)
 }
 multArray(nums, 5)
@@ -124,7 +131,7 @@ multArray(nums, 5)
 
 function calcMult(...args) {
   const product = args.reduce((acc, num) => acc * num, 1)
-  console.log(product)
+  console.log('calcMult', product)
 }
 
 calcMult(2,2,2,1)
