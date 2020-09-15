@@ -66,7 +66,7 @@ let total = 0
 const button = document.querySelector('button')
 button.disabled = true
 
-function renderProducts(products) {
+function renderProducts() {
   const productsContainer = document.querySelector('.products_container')
   const list = document.createElement('ol')
   list.setAttribute('class', 'list')
@@ -84,7 +84,7 @@ function renderProducts(products) {
     input.addEventListener('change', event => setSubtotal(event.currentTarget.value, product))
   }
 }
-renderProducts(products)
+renderProducts()
 
 
 function setSubtotal(value, product) {
@@ -94,11 +94,12 @@ function setSubtotal(value, product) {
 }
 
 function setIva(product) {
+  console.log(product)
   iva = subtotal * product.tax / 100
-  getTotal()
+  getTotal(iva)
 }
 
-function getTotal() {
+function getTotal(iva) {
   total = subtotal + iva
 }
 
